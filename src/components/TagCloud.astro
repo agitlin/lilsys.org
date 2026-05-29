@@ -1,0 +1,18 @@
+---
+export interface Props {
+  tags: Record<string, number>;
+}
+const { tags } = Astro.props;
+const maxCount = Math.max(...Object.values(tags));
+---
+<div class="tag-cloud">
+  {Object.entries(tags).sort((a,b) => b[1] - a[1]).map(([tag, count]) => (
+    <a
+      href={`/tags/${tag}`}
+      class={`tag ${count >= maxCount * 0.6 ? 'large' : ''}`}
+      title={`${count} article${count !== 1 ? 's' : ''}`}
+    >
+      {tag}
+    </a>
+  ))}
+</div>

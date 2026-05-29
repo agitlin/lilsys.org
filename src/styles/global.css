@@ -1,0 +1,72 @@
+/* lilsys.org — clean tech, teal/green, monospace accents */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #f5f7f6;
+  --surface: #eaf2ef;
+  --border: #ccddd7;
+  --text: #182622;
+  --muted: #5a7a72;
+  --accent: #1a7a5e;
+  --accent-light: #3aaa85;
+  --link: #1a7a5e;
+  --tag-bg: #d4ede5;
+  --tag-text: #145044;
+  --max-w: 720px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; font-weight: 300; font-size: 1.02rem; line-height: 1.75; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1, h2, h3 { font-family: 'Inter', system-ui, sans-serif; font-weight: 600; line-height: 1.25; color: var(--text); }
+
+.site-header { border-bottom: 2px solid var(--accent); padding: 1.1rem 2rem; display: flex; justify-content: space-between; align-items: center; background: var(--bg); }
+.site-title { font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; font-weight: 500; color: var(--accent); }
+.site-title a { color: inherit; }
+.site-title a:hover { text-decoration: none; }
+nav a { margin-left: 1.5rem; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+nav a:hover { color: var(--accent); text-decoration: none; }
+
+main { max-width: var(--max-w); margin: 3rem auto; padding: 0 1.5rem; }
+
+.hero { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+.hero h1 { font-size: 2rem; margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+.hero p { color: var(--muted); font-size: 1.05rem; }
+
+.article-list { list-style: none; }
+.article-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.article-item:last-child { border-bottom: none; }
+.article-item h2 { font-size: 1.25rem; margin-bottom: 0.35rem; }
+.article-item h2 a { color: var(--text); }
+.article-item h2 a:hover { color: var(--accent); text-decoration: none; }
+.article-meta { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.5rem; font-family: 'JetBrains Mono', monospace; }
+.article-desc { color: var(--muted); font-size: 0.95rem; }
+
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }
+.tag { background: var(--tag-bg); color: var(--tag-text); padding: 0.2rem 0.65rem; border-radius: 3px; font-size: 0.78rem; font-weight: 500; font-family: 'JetBrains Mono', monospace; }
+.tag:hover { background: var(--accent); color: white; text-decoration: none; }
+.tag.large { font-size: 0.92rem; padding: 0.28rem 0.8rem; }
+
+.article-header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+.article-header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.article-header .meta { color: var(--muted); font-size: 0.82rem; font-family: 'JetBrains Mono', monospace; }
+
+.prose p { margin-bottom: 1.4rem; }
+.prose h2 { font-size: 1.4rem; margin: 2rem 0 0.75rem; }
+.prose h3 { font-size: 1.15rem; margin: 1.5rem 0 0.5rem; }
+.prose ul, .prose ol { padding-left: 1.5rem; margin-bottom: 1.4rem; }
+.prose li { margin-bottom: 0.4rem; }
+.prose strong { font-weight: 600; }
+.prose em { font-style: italic; }
+.prose blockquote { border-left: 3px solid var(--accent-light); padding-left: 1.2rem; color: var(--muted); margin: 1.5rem 0; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+.prose code { font-family: 'JetBrains Mono', monospace; font-size: 0.88em; background: var(--surface); padding: 0.1em 0.4em; border-radius: 3px; }
+
+.back-link { display: inline-block; margin-top: 2.5rem; font-size: 0.88rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+.back-link:hover { color: var(--accent); }
+.article-tags { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.article-tags h3 { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.75rem; }
+.tag-page-title { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.tag-page-title span { color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+.site-footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-size: 0.8rem; color: var(--muted); margin-top: 4rem; font-family: 'JetBrains Mono', monospace; }
