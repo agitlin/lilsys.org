@@ -1,12 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getAboutArticle } from '../lib/content';
+
+// The About page renders whichever article is tagged `about` (enforced unique
+// at build time in lib/content.ts), so it's editable in the CMS like any post.
+const about = await getAboutArticle();
+const { Content } = about ? await about.render() : { Content: null };
 ---
-<BaseLayout title="About">
+<BaseLayout title="About" description={about?.data.description}>
   <article class="prose">
-    <div class="article-header"><h1>About</h1></div>
-    <p>Lilsys is not a course. Not a bootcamp. A <em>way</em> — of staying in tech, staying sharp, and doing it together.</p>
-    <p>The premise: AI didn't make experienced developers obsolete. It changed the job. The new skill set is knowing how to work <em>with</em> AI — how to prompt well, structure context, use tools like Claude Code and MCP servers, and stay relevant as the landscape shifts under your feet.</p>
-    <p>Lilsys is built around one core idea: a little system, built with one other person and AI, can accomplish more than either of you could alone. The key word is <em>little</em>. Not a platform. Not a company. A system that does one thing well.</p>
-    <p>The writing here is about building those systems — the technical moves, the mindset, the workflow, and the community that makes it sustainable.</p>
+    <div class="article-header"><h1>{about?.data.title ?? 'About'}</h1></div>
+    {Content ? <Content /> : <p>No article is tagged <code>about</code> yet.</p>}
   </article>
 </BaseLayout>

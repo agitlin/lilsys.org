@@ -1,0 +1,44 @@
+# Pages CMS configuration — https://pagescms.org
+# Single-user editor for this site. Sign in at https://app.pagescms.org with
+# GitHub, authorize this repo, and edit the articles below. Saving commits to
+# the repo, which triggers the GitHub Pages deploy.
+
+media:
+  input: public/images
+  output: /images
+
+content:
+  - name: articles
+    label: Articles
+    type: collection
+    path: src/content/articles
+    filename: '{fields.title}.md'
+    view:
+      fields: [title, date, tags, draft]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: description
+        label: Description
+        type: text
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+        description: 'Tag exactly one article "about" to make it the About page.'
+      - name: draft
+        label: Hidden
+        type: boolean
+        default: false
+        description: 'On = hidden from the live site.'
+      - name: body
+        label: Body
+        type: rich-text
